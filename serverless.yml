@@ -40,7 +40,7 @@ provider:
   profile: easyshop
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
-  stage: ${opt:stage,'prod'}
+  stage: ${opt:stage,'dev'}
   region: ap-south-1
   role: arn:aws:iam::640552593021:role/LambdaFunctionExecutionRole
   deploymentBucket: easyshop-deployment
