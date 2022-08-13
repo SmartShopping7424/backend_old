@@ -73,3 +73,9 @@ functions:
           cors: true
     environment:
       NODE_PATH: "./:/opt/node_modules"
+    layers:
+      - arn:aws:lambda:ap-south-1:640552593021:layer:package:latest
+
+# plugins
+plugins:
+  - serverless-latest-layer-version
