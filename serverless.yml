@@ -28,7 +28,7 @@ package:
     - .npmignore
     - .gitignore
 
-# custom varibale accordin stage
+# custom variable according stage
 custom:
   URL:
     dev: "https://81grr8mzo7.execute-api.ap-south-1.amazonaws.com/dev"
@@ -64,12 +64,18 @@ provider:
 
 # lambda functions
 functions:
-  hello:
-    handler: src/handler/handler.hello
+  maintainers:
+    handler: src/handler/maintainers/maintainers_handler.handler
     events:
       - http:
-          path: /hello
-          method: GET
+          path: /maintainers/{proxy+}
+          method: ANY
           cors: true
     environment:
       NODE_PATH: "./:/opt/node_modules"
+    layers:
+      - arn:aws:lambda:ap-south-1:640552593021:layer:package:latest
+
+# plugins
+plugins:
+  - serverless-latest-layer-version
